@@ -1,0 +1,59 @@
+{% include "mainheader.html" %}
+
+<div id="main">
+<div id="searchform">
+    
+    <table>
+    <tr>
+        <td>
+    <form action="search" method="post">{% csrf_token %}
+    <div class="fieldWrapper">
+        {{ form.pub_date.errors }}
+        <label for="id_pub_date">{{ form.pub_date.label_tag }}</label>
+        {{ form.pub_date }}
+    </div>
+        </td>
+        <td>
+    <div class="fieldWrapper">
+        {{ form.story_date.errors }}
+        <label for="id_story_date">{{ form.story_date.label_tag }}</label>
+        {{ form.story_date }}
+    </div>
+        </td>
+    </tr>
+        <td>
+    <div class="fieldWrapper">
+        {{ form.element.errors }}
+        <label for="id_element">{{ form.element.label_tag }}</label>
+        {{ form.element }}
+    </div>
+        </td>
+        <td>
+    <div class="fieldWrapper">
+        {{ form.country.errors }}
+        <label for="id_country">{{ form.country.label_tag }}</label>
+        {{ form.country }}
+    </div>
+        </td>
+    </tr>
+        <td>
+    <div class="fieldWrapper">
+        {{ form.story.errors }}
+        <label for="id_story">{{ form.story.label_tag }}</label>
+        {{ form.story }}
+    </div>
+        </td>
+        <td>
+    <div class="fieldWrapper">
+        {{ form.author.errors }}
+        <label for="id_author">{{ form.author.label_tag }}</label>
+        {{ form.author }}
+    </div>
+        
+        <input type="submit" value="Submit" />
+        </td>
+    </form>
+    </table>
+</div>
+</div>
+{% include "mainfooter.html" %}

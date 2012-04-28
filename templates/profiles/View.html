@@ -1,0 +1,32 @@
+{% include "mainheader.html" %}
+<div id="main">
+
+<div id="{{userinfo.nickname.label_tag }}" class="item">
+    {{userinfo.nickname}}
+</div>
+
+<div id="{{userinfo.aboutme.label_tag }}" class="item">
+    {{userinfo.aboutme}}
+</div>
+
+<div id="{{userinfo.dob.label_tag }}" class="item">
+    {{userinfo.dob}}
+</div>
+
+<div id="{{userinfo.currentlocation.label_tag }}" class="item">
+    {{userinfo.currentlocation}}
+</div>
+<div id="{{userinfo.homeCity.label_tag }}" class="item">
+    {{userinfo.homeCity}}
+</div>
+<div id="{{userinfo.homeCountry.label_tag }}" class="item">
+    {{userinfo.homeCountry}}
+</div>
+<div id="{{userinfo.favouriteElement.label_tag }}" class="item">
+    {{userinfo.favouriteElement}}
+</div>
+
+
+    
+</div>
+{% include "mainfooter.html" %}

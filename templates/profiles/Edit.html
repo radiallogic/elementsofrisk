@@ -1,0 +1,41 @@
+{% include "mainheader.html" %}
+
+<div id="main">
+
+    <form action="/profiles/editprofile" method="post">{% csrf_token %}
+    <div class="col1 group">
+        <div id="form.nickname.label_tag" >
+            {{ form.nickname }}
+        </div>
+        
+        <div id="form.dob.label_tag" >
+            {{ form.dob }}
+        </div>
+        
+        <div id="form.favouriteElement.label_tag" >
+            {{ form.favouriteElement }}
+        </div>
+    </div>
+    
+    <div class="col2 group">
+                
+        <div id="form.homeCountry.label_tag" >
+            {{ form.homeCountry }}
+        </div>
+        
+        <div id="form.homeCity.label_tag" >
+            {{ form.homeCity }}
+        </div>
+        <div id="form.aboutme.label_tag" >
+            {{ form.aboutme }}
+        </div>
+        
+        <div id="form.lookingfor.label_tag" >
+            {{ form.lookingfor }}
+        </div>
+    </div>
+        <input type="submit" value="Submit" />
+    </form>
+
+</div>
+{% include "mainfooter.html" %}

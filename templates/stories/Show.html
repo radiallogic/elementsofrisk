@@ -1,0 +1,13 @@
+{% include "mainheader.html" %}
+<div id="main">
+    <div id="storylist">
+    {{storylist}}
+    
+    {% for stub in storylist %}
+        <div id="stub">
+            {{stub}}
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% include "mainfooter.html" %}

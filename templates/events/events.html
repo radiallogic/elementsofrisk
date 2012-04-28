@@ -1,0 +1,24 @@
+<div id="events" class="clear group">
+<div class="col1and2" >
+    <div class="quote">
+        News Feed
+    </div>    
+{% if events  %}
+    {% for event in events %}
+    <div class="{% cycle 'event' 'eventcolour' %}">
+        event.details
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="quote clear">
+        No events or requests found (maybe create one?)
+    </div>
+{% endif %}
+</div>
+
+<div class="col3">
+    <a href="events/request">make a request</a> <br />
+    <a href="events/request">create an event</a> <br />
+</div>
+
+</div>

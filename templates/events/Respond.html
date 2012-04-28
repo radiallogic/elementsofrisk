@@ -1,0 +1,10 @@
+{% include "mainheader.html" %}
+<div id="main">
+    <form action="/events/respond" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+{% include "mainfooter.html" %}

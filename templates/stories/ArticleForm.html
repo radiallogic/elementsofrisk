@@ -1,0 +1,54 @@
+{% include "mainheader.html" %}
+
+<div id="main">
+
+<div id="articleform">
+    
+    <form action="/add/" method="post">{% csrf_token %}
+    
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="fieldWrapper">
+                                <label for="id_story_date">{{ form.story_date.label_tag }}</label>
+                                {{ form.story_date }}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="fieldWrapper">
+                                <label for="id_element">{{ form.element.label_tag }}</label>
+                                {{ form.element }}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="fieldWrapper">
+                                <label for="id_country">{{ form.country.label_tag }}</label>
+                                {{ form.country }}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <div class="fieldWrapper">
+                    <label for="id_story">{{ form.story.label_tag }}</label>
+                    {{ form.story }}
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Submit" />
+    </form>
+
+</div>
+
+</div>
+{% include "mainfooter.html" %}

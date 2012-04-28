@@ -1,0 +1,47 @@
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.nickname.errors }}
+        <label for="id_nickname">{{ form.nickname.label_tag }}</label>
+        {{ form.nickname }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.dob.errors }}
+        <label for="id_dob">{{ form.dob.label_tag }}</label>
+        {{ form.dob }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.homeCountry.errors }}
+        <label for="id_homeCountry">{{ form.homeCountry.label_tag }}</label>
+        {{ form.homeCountry }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.homeCity.errors }}
+        <label for="id_homeCity">{{ form.homeCity.label_tag }}</label>
+        {{ form.homeCity }}
+    </div>
+    <hr> 
+    <div class="fieldWrapper">
+        {{ form.favouriteElement.errors }}
+        <label for="id_favouriteElement">{{ form.favouriteElement.label_tag }}</label>
+        {{ form.favouriteElement }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.aboutme.errors }}
+        <label for="id_aboutme">{{ form.aboutme.label_tag }}</label>
+        {{ form.aboutme }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.skills.errors }}
+        <label for="id_skills">{{ form.skills.label_tag }}</label>
+        {{ form.skills }}
+    </div>
+        <div class="fieldWrapper">
+        {{ form.accepting.errors }}
+        <label for="id_accepting">{{ form.accepting.label_tag }}</label>
+        {{ form.accepting }}
+    </div>
+            <div class="fieldWrapper">
+        {{ form.lookingfor.errors }}
+        <label for="id_lookingfor">{{ form.lookingfor.label_tag }}</label>
+        {{ form.lookingfor }}
+    </div>
