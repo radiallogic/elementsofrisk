@@ -3,6 +3,9 @@ from django.forms import ModelForm, Textarea
 
 from elementsofrisk.config import COUNTRIES, ELEMENTS
 
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
+
 class Article(models.Model):
     country = models.CharField(max_length=50, choices = ELEMENTS)
     pub_date = models.DateTimeField('date published')
@@ -15,6 +18,17 @@ class Article(models.Model):
         return self.title
     
 class ArticleForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-articleForm'
+        self.helper.form_class = 'blueForms'
+        self.helper.form_method = 'post'
+        self.helper.form_action = 'submit_survey'
+
+        self.helper.add_input(Submit('submit', 'Submit'))
+        
+        super(jobSearchForm, self).__init__(*args, **kwargs)
+        
     class Meta:
         model = Article
         fields = ('story_date','element','country','story')
@@ -23,6 +37,16 @@ class ArticleForm(ModelForm):
         }
         
 class ArticleSearchForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-articleSearchForm'
+        self.helper.form_class = 'blueForms'
+        self.helper.form_method = 'post'
+        self.helper.form_action = 'submit_survey'
+
+        self.helper.add_input(Submit('submit', 'Submit'))
+        
+        super(jobSearchForm, self).__init__(*args, **kwargs)
     class Meta:
         model = Article
         fields = ('pub_date','story_date','element','country','story','author')

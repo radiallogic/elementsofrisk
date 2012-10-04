@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 
 from elementsofrisk.config import COUNTRIES, ELEMENTS, SKILL, LOOKINGFOR, SPORT
 
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
+
 class activities(models.Model):
     element = models.CharField(max_length = 1, choices = ELEMENTS)
     name = models.CharField(max_length = 50)
@@ -44,18 +47,32 @@ class memberAditionalForm(ModelForm):
         
 class memberAditionalSearchForm(ModelForm):
     def __init__(self, *args, **kwargs):
-        super(memberAditionalSearchForm, self).__init__(*args, **kwargs)
-        self.fields['homeCountry'].label = "Home Country"
-        self.fields['homeCity'].label = "Home City"
-        self.fields['favouriteElement'].label = "Element"
-        self.fields['aboutme'].label = "About Me"
-        self.fields['lookingfor'].label = "Looking For"
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-eventForm'
+        self.helper.form_class = 'blueForms'
+        self.helper.form_method = 'post'
+        self.helper.form_action = 'submit_survey'
+
+        self.helper.add_input(Submit('submit', 'Submit'))
+        
+        super(jobSearchForm, self).__init__(*args, **kwargs)
     class Meta():
         model = memberAditional
         fields = ('nickname','dob','homeCountry','homeCity','favouriteElement','aboutme','lookingfor')
 
         
 class registerForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-eventForm'
+        self.helper.form_class = 'blueForms'
+        self.helper.form_method = 'post'
+        self.helper.form_action = 'submit_survey'
+
+        self.helper.add_input(Submit('submit', 'Submit'))
+        
+        super(jobSearchForm, self).__init__(*args, **kwargs)
+        
     username = forms.CharField(max_length=100, label='Username')
     password = forms.CharField( widget=forms.PasswordInput, label="Your Password" )
     confirmPassword = forms.CharField( widget=forms.PasswordInput, label="Confirm Your Password" )

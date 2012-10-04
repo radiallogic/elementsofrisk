@@ -1,10 +1,10 @@
 {% include "mainheader.html" %}
+{% load crispy_forms_tags %}
+
 <div id="main">
     <form action="/events/request" method="post">
         {% csrf_token %}
-        {{form.as_p}}
-                
-        <input type="submit" value="Submit" />
+        {%crispy form%}
     </form>
 </div>
 {% include "mainfooter.html" %}

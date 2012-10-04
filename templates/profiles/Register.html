@@ -1,92 +1,12 @@
 {% include "mainheader.html" %}
+
+{% load crispy_forms_tags %}
 <div id="main">
 
 <div id="registerform">
 
 <form action="/profiles/register" method="post">{% csrf_token %}
-    {{ form.non_field_errors }}
-    <div class="col1">
-        <table>
-           <tr>
-                <td>
-                    <label for="id_username">Username:</label>
-                </td>
-                <td>
-                    {{ form.username }}
-                </td>
-                <tr>
-                    <td>
-                        {{ form.username.errors }}
-                    </td>
-                </tr>
-            <tr>
-                <td>
-                    <label for="id_password">Your password:</label>
-                </td>
-                <td>
-                    {{ form.password }}
-                </td>
-                <tr>
-                    <td>
-                        {{ form.password.errors }}
-                    </td>
-                </tr>
-            </tr>
-            <tr>
-                <td>
-                    <label for="id_email">Your email address:</label>
-                </td>
-                <td>
-                    {{ form.email }}
-                </td>
-                <tr>
-                    <td>
-                        {{ form.email.errors }}
-                    </td>
-                </tr>
-            </tr>
-        </table>
-    </div>
-    
-    <div class="col2">   
-        <table>
-            <tr>
-                    <td>
-                    <label for="id_confirmPassword">Confirm Password:</label>
-                </td>
-                <td>
-                    {{ form.confirmPassword }}
-                </td>
-                <tr>
-                    <td>
-                        {{ form.confirmPassword.errors }}
-                    </td>
-                </tr>
-            </tr>
-            <tr>
-                <td align="right">
-                    and
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="id_confirmEmail">Confirm Your email address:</label>
-                </td>
-                <td>
-                    {{ form.confirmEmail }}
-                </td>
-                <tr>
-                    <td>
-                        {{ form.confirmEmail.errors }}
-                    </td>
-                </tr>
-            </tr>
-        </table>
-    </div>
-    
-    <div class="col3">
-        <input type="submit" value="Register" /></p>
-    </div>
+    {% cripsy form %}
 </form>
 
 </div>

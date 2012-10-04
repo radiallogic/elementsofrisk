@@ -4,6 +4,9 @@ from django.forms import ModelForm
 from django.contrib.auth.models import User
 from elementsofrisk.config import COUNTRIES, ELEMENTS
 
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
+
 # Create your models here.
 class event(models.Model):
     public = models.BooleanField()
@@ -21,6 +24,16 @@ class message(models.Model):
     event = models.ForeignKey(event)
     
 class eventForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-eventForm'
+        self.helper.form_class = 'blueForms'
+        self.helper.form_method = 'post'
+        self.helper.form_action = 'submit_survey'
+
+        self.helper.add_input(Submit('submit', 'Submit'))
+        
+        super(jobSearchForm, self).__init__(*args, **kwargs)
     class Meta:
         model = event
         fields = ('public','country','location','description','toId')
@@ -29,6 +42,16 @@ class eventForm(ModelForm):
         #}
         
 class messageForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-messageForm'
+        self.helper.form_class = 'blueForms'
+        self.helper.form_method = 'post'
+        self.helper.form_action = 'submit_survey'
+
+        self.helper.add_input(Submit('submit', 'Submit'))
+        
+        super(jobSearchForm, self).__init__(*args, **kwargs)
     class Meta:
         model = message
         fields = ('messageContent', 'messageContent')
